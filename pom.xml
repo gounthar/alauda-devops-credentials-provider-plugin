@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>3.4</version>
+        <version>4.51</version>
         <relativePath />
     </parent>
     <groupId>io.alauda.jenkins.plugins</groupId>
@@ -12,8 +12,7 @@
     <version>2.3.1-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <properties>
-        <jenkins.version>2.83</jenkins.version>
-        <java.level>8</java.level>
+        <jenkins.version>2.346.3</jenkins.version>
     </properties>
     <name>Alauda DevOps Credentials Provider Plugin</name>
     <description>This plugin will provide a credentials store backed by Kubernetes</description>
@@ -40,8 +39,19 @@
         <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
         <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.jenkins.tools.bom</groupId>
+                <artifactId>bom-weekly</artifactId>
+                <version>2612.v3d6a_2128c0ef</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <repositories>
         <repository>
@@ -60,12 +70,10 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>credentials</artifactId>
-            <version>2.1.16</version>
         </dependency>
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>cloudbees-folder</artifactId>
-            <version>6.1.2</version>
         </dependency>
         <dependency>
             <groupId>io.alauda.jenkins.plugins</groupId>
